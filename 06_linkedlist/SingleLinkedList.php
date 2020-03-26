@@ -2,8 +2,8 @@
 /**
  * 链表插入、删除、查找
  */
-namespace Singlelinkedlist;
-require_once './SingleLinkedListNode.php';
+namespace Linkedlist_06;
+//require_once '06_linkedlist/SingleLinkedListNode.php';
 
 class SingleLinkedList{
 

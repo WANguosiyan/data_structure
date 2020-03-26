@@ -1,5 +1,5 @@
 <?php
-namespace Singlelinkedlist;
+namespace Linkedlist_06;
 /**
  * 新建单链表节点类
  */
