@@ -98,16 +98,21 @@ class SingleLinkedList{
      * @param SingleLinkedListNode $node
      * @param $data
      */
-    public function insertNodeAfter(SingleLinkedListNode $node,$data){
-        if($node == null) return null;
-        $newNode = new SingleLinkedListNode();
-        $newNode->data = $data;
-        $newNode->next = $node->next;
-        $node->next = $newNode;
-        $this->length++;
-        return true;
+    public function insertNodeAfter(SingleLinkedListNode $originNode, SingleLinkedListNode $node)
+    {
+        // 如果originNode为空，插入失败
+        if (null == $originNode) {
+            return false;
+        }
 
+        $node->next = $originNode->next;
+        $originNode->next = $node;
+
+        $this->length++;
+
+        return $node;
     }
+
 
     /**
      * 在指定节点前插入元素
@@ -131,6 +136,35 @@ class SingleLinkedList{
     public function getLikedList(){
         return $this->head;
     }
+
+    /**
+     * 构造一个有环的链表
+     */
+    public function buildHasCircleList()
+    {
+
+        $data = [1, 2, 3, 4, 5, 6, 7, 8];
+        $node0 = new SingleLinkedListNode($data[0]);
+        $node1 = new SingleLinkedListNode($data[1]);
+        $node2 = new SingleLinkedListNode($data[2]);
+        $node3 = new SingleLinkedListNode($data[3]);
+        $node4 = new SingleLinkedListNode($data[4]);
+        $node5 = new SingleLinkedListNode($data[5]);
+        $node6 = new SingleLinkedListNode($data[6]);
+        $node7 = new SingleLinkedListNode($data[7]);
+
+        $this->insertNodeAfter($this->head, $node0);
+        $this->insertNodeAfter($node0, $node1);
+        $this->insertNodeAfter($node1, $node2);
+        $this->insertNodeAfter($node2, $node3);
+        $this->insertNodeAfter($node3, $node4);
+        $this->insertNodeAfter($node4, $node5);
+        $this->insertNodeAfter($node5, $node6);
+        $this->insertNodeAfter($node6, $node7);
+
+        $node7->next = $node4;
+    }
+
 }
 
 ?>

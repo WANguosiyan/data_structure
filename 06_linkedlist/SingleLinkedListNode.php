@@ -11,9 +11,9 @@ class SingleLinkedListNode{
     public $next;
 
     //创建新节点
-    public function __construct()
+    public function __construct($data = null)
     {
-        $this->data = null;
+        $this->data = $data;
         $this->next = null;
     }
 }

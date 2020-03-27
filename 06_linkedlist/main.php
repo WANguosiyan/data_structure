@@ -1,14 +1,6 @@
 <?php
 namespace Linkedlist_06;
-$list = new SingleLinkedList();
-$list->insert('a');
-$list->insert('b');
-$list->insert('c');
-$list->insert('b');
-$list->insert('a');
-echo "<pre>";
-var_dump($list->getLikedList());
-var_dump(palinDrome($list));
+require_once '../autoload.php';
  function palinDrome(SingleLinkedList $list){
 
      if($list->getLength() <= 1) return true;
@@ -40,7 +32,15 @@ var_dump(palinDrome($list));
 
 
 }
-
+ $list = new SingleLinkedList();
+ $list->insert('a');
+ $list->insert('b');
+ $list->insert('c');
+ $list->insert('b');
+ $list->insert('a');
+ echo "<pre>";
+ var_dump($list->getLikedList());
+ var_dump(palinDrome($list));
 //echo "<pre>";
 //var_dump($list->getLikedList());
 //var_dump($list->getLength());
